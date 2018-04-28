@@ -2,27 +2,34 @@
 var express = require('express')
 var bodyparser = require('body-parser')
 var path = require('path')
-var morgan = require('morgan')
-var expresshbs = require('express-handlebars')
 
 // new express app
 var app = express()
 
+// DB
+var db = require("./models");
+
 // middleware
-app.use(morgan('dev'))
-app.engine('hbs', expresshbs({defaultLayout: 'main', extname: '.hbs'}))
-app.set('view engine', 'hbs')
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(bodyparser.urlencoded({ extended: true }))
-app.use(bodyparser.json())
+
+app.use(bodyParser.urlencoded({ extended: true }));
+// parse application/json
+app.use(bodyParser.json());
+
+// Static directory
+app.use(express.static("public"));
+
 
 // your code here...
-app.get('/', function (req, res) {
-  res.render('index')
-})
 
-var PORT = process.env.PORT || 3000
-// listening port
-app.listen(PORT, function (e) {
-  if (e) throw e
-})
+require("./routes/post-api-routes.js")(app);
+require("./routes/author-api-routes.js")(app);
+require("./routes/html-routes.js")(app);
+
+
+
+
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});

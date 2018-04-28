@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CMS - Express</title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row top-30">
+      <div class="col-md-2 col-sm-2">
+        <a class="btn btn-default" href="/blog">Go to Blog</a>
+      </div>
+			<div class="col-md-2 col-sm-2">
+        <a class="btn btn-default" href="/cms">New Post</a>
+      </div>
+    </div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="burger-container">
+					<h1>Burgers</h1>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Name of Burger</th>
+								<th>Deliciousness Scale</th>
+								<th>Delete Burger</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="form-row">
+								<form id="burger-form">
+									<td colspan="4">
+										<input placeholder="Enter a name" id="burger-name" type="text" />
+									</td>
+									<td><button type="submit" class="btn btn-success">Create Burgers</button>
+									</td>
+								</form>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		</d>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="devouredBurger-container">
+					<h1>Devoured Burgers</h1>
+					<table class="devouredBurg-table table table-striped">
+						<thead>
+							<tr>
+								<th>Name of Burger</th>
+								<th>Deliciousness Scale</th>
+		
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!-- Custom Script -->
+		<script src="js/burger.js" type="text/javascript"></script>
+
+</body>
+
+</html>
